@@ -1,0 +1,8 @@
+path: /Users/snow/NJIT/Fall_2023/cs370/assignments/HW04/data
+# path: ./data
+train: images/train
+val: images/train
+
+# Classes
+names:
+  0: drone

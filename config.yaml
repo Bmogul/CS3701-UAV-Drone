@@ -1,4 +1,4 @@
-path: /Users/snow/NJIT/Fall_2023/cs370/assignments/HW04/data
+path: /content/CS3701-UAV-Drone
 # path: ./data
 train: images/train
 val: images/train

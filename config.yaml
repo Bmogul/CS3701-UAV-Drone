@@ -1,4 +1,4 @@
-path: /content/CS3701-UAV-Drone
+path: /content/CS3701-UAV-Drone/data
 # path: ./data
 train: images/train
 val: images/train

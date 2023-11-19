@@ -2,9 +2,12 @@ import cv2
 import scipy
 import os
 import numpy as np
+import shutil
 
 
 folder_path = './image_label'
+image_folder = './data/images/train'
+label_folder = './data/labels/train'
 
 for folder in os.listdir(folder_path):
     folder_full_path = os.path.join(folder_path, folder)
@@ -39,10 +42,16 @@ for folder in os.listdir(folder_path):
                     # Print or use the converted coordinates for further processing
                     # print(f"Image {i}0.jpg: x_center={x_center_norm}, y_center={y_center_norm}, width={width_norm}, height={height_norm}")
                     yolo_annotation = f"0 {x_center_norm} {y_center_norm} {width_norm} {height_norm}\n"  # Assuming '0' represents the class 'drone'
-                    annotation_file_yolo = os.path.join(folder_full_path, f"{num}0.txt")  # YOLO annotation file path
+                    annotation_file_yolo = os.path.join(label_folder, f"{folder}_{num}0.txt")
+                    image_dest = os.path.join(image_folder, f"{folder}_{num}0.jpg")
+
+                    # annotation_file_yolo = os.path.join(folder_full_path, f"{num}0.txt")  # YOLO annotation file path
+                    shutil.copy(image_path, image_dest)
+
                     with open(annotation_file_yolo, 'w') as f:
                         f.write(yolo_annotation)
                 else:
                     i-=1  # If image file is missing, skip this annotation and move on to the next one
         else:
             print("No annotation file found in {folder}")
+

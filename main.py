@@ -3,9 +3,8 @@ import scipy
 from ultralytics import YOLO
 import os
 
-model = YOLO("runs/detect/train/weights/best.pt")
-
-# results = model.train(data='config.yaml', epochs=3, device='mps')
+model = YOLO("yolov5s.pt")
+results = model.train(data='config.yaml', epochs=3, device='mps')
 
 # video_paths = ["./videos/drone1DroneTracking1.mp4", "./videos/drone2DroneTracking2.mp4"]
 videos_path = "./videos"
